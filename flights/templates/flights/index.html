@@ -7,4 +7,8 @@
             <li><a href="{% url 'flights:flight' flight.id %}">Flight: {{flight.id}}</a>: {{flight.origin}} to {{flight.destination}}</li>
         {% endfor %}
     </ul>
+
+    <div>
+        <a href="{% url 'users:logout' %}">Log out</a>
+    </div>
 {% endblock %}

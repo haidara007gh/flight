@@ -28,3 +28,4 @@ def book(request, flight_id):
         flight.passengers.add(passenger)
         
         return HttpResponseRedirect(reverse('flights:flight', args=(flight_id,)))
+    
