@@ -2,13 +2,16 @@ from django.urls import reverse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from flights.models import *
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index(request):
     return render(request, 'flights/index.html',{
         'flights': Flight.objects.all()
     })
 
+@login_required
 def flight(request, flight_id):
     flight = Flight.objects.get(pk=flight_id)
     passengers = flight.passengers.all()
@@ -19,6 +22,7 @@ def flight(request, flight_id):
         'non_passengers': non_passengers
     })
 
+@login_required
 def book(request, flight_id):
     if request.method == "POST":
         flight = Flight.objects.get(pk=flight_id)
