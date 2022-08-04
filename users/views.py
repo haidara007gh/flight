@@ -6,7 +6,7 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('users:login_view'))
+        return HttpResponseRedirect(reverse('users:login'))
     return HttpResponseRedirect(reverse('flights:index'))
 
 def login_view(request):
